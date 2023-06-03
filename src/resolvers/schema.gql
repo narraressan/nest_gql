@@ -1,0 +1,64 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input GetUserNotesInput {
+  userUUID: String!
+}
+
+type GetUserNotesOutput {
+  info: JSON!
+  notes: [NoteOutput!]!
+  user: UserDetailOutput!
+}
+
+type GqlSuccess {
+  id: Int
+  message: String!
+}
+
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSON
+
+type Mutation {
+  createUserNote(input: NoteInput!): GqlSuccess!
+}
+
+input NoteInput {
+  id: Int
+  message: String
+  userUUID: String!
+}
+
+type NoteOutput {
+  id: Int!
+  message: String
+}
+
+type Query {
+  getUserNotes(input: GetUserNotesInput!): GetUserNotesOutput!
+}
+
+input UserDetailInput {
+  email: String!
+  fullname: String
+  id: Int
+  role: UserRoleEnum!
+  uuid: String
+}
+
+type UserDetailOutput {
+  email: String!
+  fullname: String
+  id: Int
+  role: UserRoleEnum!
+  uuid: String
+}
+
+enum UserRoleEnum {
+  ADMIN
+  MANAGEMENT
+  USER
+}
