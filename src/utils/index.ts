@@ -2,7 +2,6 @@ import * as dayjs from 'dayjs';
 import * as utc from 'dayjs/plugin/utc';
 import * as duration from 'dayjs/plugin/duration';
 import { ClassConstructor, plainToClass } from 'class-transformer';
-import * as bcrypt from 'bcrypt';
 import { validateOrReject } from 'class-validator';
 import { HttpService } from '@nestjs/axios';
 import { lastValueFrom } from 'rxjs';
@@ -81,10 +80,6 @@ export function logtime(
   };
   return propertyDescriptor;
 }
-
-export const getHashFromText = async (text: string): Promise<string> => {
-  return await bcrypt.hash(text, parseInt(process.env.HASH_ROUNDS));
-};
 
 // Note: send information via webhook
 export const sendToSlack = async (text: string) => {

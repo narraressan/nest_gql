@@ -21,10 +21,11 @@ services:
   # enable only when target image exists
   nest_gql:
     image: nest_gql:v1
+    restart: always
     environment:
       - DB_HOST=database
     ports:
-      - "80:3030" 
+      - "3030:3030" 
     depends_on:
       - database
     networks:

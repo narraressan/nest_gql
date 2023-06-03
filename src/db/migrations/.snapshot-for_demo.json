@@ -222,16 +222,6 @@
       "schema": "public",
       "indexes": [
         {
-          "columnNames": [
-            "user_uuid",
-            "user_auth0"
-          ],
-          "composite": true,
-          "keyName": "notes_user_uuid_user_auth0_unique",
-          "primary": false,
-          "unique": true
-        },
-        {
           "keyName": "notes_pkey",
           "columnNames": [
             "id"
@@ -255,7 +245,8 @@
             "auth0"
           ],
           "referencedTableName": "public.users",
-          "deleteRule": "cascade"
+          "deleteRule": "set null",
+          "updateRule": "cascade"
         }
       }
     }
