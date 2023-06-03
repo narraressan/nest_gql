@@ -18,17 +18,17 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=supersecret
   
-  # # enable only when target image exists
-  # nest_gql:
-  #   image: nest_gql:v1
-  #   environment:
-  #     - DB_HOST=database
-  #   ports:
-  #     - "80:3030" 
-  #   depends_on:
-  #     - database
-  #   networks:
-  #     - postgres
+  # enable only when target image exists
+  nest_gql:
+    image: nest_gql:v1
+    environment:
+      - DB_HOST=database
+    ports:
+      - "80:3030" 
+    depends_on:
+      - database
+    networks:
+      - postgres
 
 volumes:
   postgres_data:
