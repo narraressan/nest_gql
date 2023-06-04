@@ -22,7 +22,7 @@ Note:
 
 ```bash
 yarn install
-cp .env.template .env
+docker-compose up database -d
 yarn start
 yarn test
 ```
