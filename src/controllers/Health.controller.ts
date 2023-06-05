@@ -8,8 +8,8 @@ import { Controller, Get, UseGuards } from '@nestjs/common';
 import { HealthService } from 'src/services/Health.service';
 import { ThrottlerGuard } from '@nestjs/throttler';
 
-@Controller('health')
 @UseGuards(ThrottlerGuard)
+@Controller('health')
 export class HealthController {
   constructor(
     private health: HealthCheckService,

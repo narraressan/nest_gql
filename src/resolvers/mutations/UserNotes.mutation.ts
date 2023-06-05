@@ -1,15 +1,10 @@
-import { UseGuards } from '@nestjs/common';
-import { Args, Mutation, Resolver } from '@nestjs/graphql';
+import { Args, Mutation } from '@nestjs/graphql';
 import { UserRoleEnum } from 'src/db/entities/Base';
 import { GqlSuccess, NoteInput } from 'src/dto/GraphQL.dto';
-import { GQLThrottlerGuard } from 'src/guards/Throttle.guard';
-import { IsPrivateGQLApi } from 'src/guards/Auth.guard';
-import { UserRoles, UserRolesGQLGuard } from 'src/guards/Roles.guard';
 import { UserNotesService } from 'src/services/UserNotes.service';
+import { PrivateResolver } from 'src/decorators';
 
-@Resolver()
-@UserRoles(UserRoleEnum.ADMIN, UserRoleEnum.MANAGEMENT)
-@UseGuards(IsPrivateGQLApi, GQLThrottlerGuard, UserRolesGQLGuard)
+@PrivateResolver(UserRoleEnum.ADMIN, UserRoleEnum.MANAGEMENT, UserRoleEnum.USER)
 export class UserNotesMutation {
   constructor(private readonly notes: UserNotesService) {}
 

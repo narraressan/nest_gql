@@ -6,8 +6,6 @@ services:
   database:
     image: postgres:13-alpine
     restart: always
-    networks:
-      - postgres
     volumes:
       - ./postgres_data:/var/lib/postgresql/data/
       - ./db_init.sql:/docker-entrypoint-initdb.d/db_init.sql
@@ -19,7 +17,7 @@ services:
       - POSTGRES_PASSWORD=supersecret
   
   # enable only when target image exists
-  nest_gql:
+  service:
     image: nest_gql:v1
     restart: always
     environment:
@@ -28,12 +26,6 @@ services:
       - "3030:3030" 
     depends_on:
       - database
-    networks:
-      - postgres
 
 volumes:
   postgres_data:
-
-networks:
-  postgres:
-    driver: bridge

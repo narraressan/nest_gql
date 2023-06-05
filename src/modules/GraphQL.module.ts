@@ -8,8 +8,8 @@ import { HealthService } from 'src/services/Health.service';
 import { UserNotesService } from 'src/services/UserNotes.service';
 
 @Module({
-  controllers: [HealthController],
   imports: [GraphQLConfig, TerminusModule],
+  controllers: [HealthController],
   providers: [
     // services ---
     HealthService,

@@ -1,4 +1,4 @@
-# Simple REST with Nest
+# Simple GraphQL with Nest
 
 This project is a showcase of my expertise in back-end development using NestJS. It demonstrates a GraphQL architecture with features like CI/CD, Automated testing, Authentication and Authorization using **Auth0**, ORM, and containerization.
 
@@ -23,7 +23,7 @@ Note:
 ```bash
 yarn install
 docker-compose up database -d
-yarn start
+yarn dev
 yarn test
 ```
 
@@ -35,7 +35,7 @@ yarn revert_db
 yarn migrate_db
 ```
 
-### CI/CD to Production
+### Dockerize
 
 ```bash
 docker build --file ./dockerfile --tag [image_name]:[version] . --no-cache --progress=plain
@@ -51,3 +51,4 @@ docker logout
 
 - add `refresh token` mechanism
 - integrate Auth0 logout API
+- add github pipelines

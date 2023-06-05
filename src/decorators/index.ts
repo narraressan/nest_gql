@@ -9,9 +9,9 @@ import { GQLThrottlerGuard } from 'src/guards/Throttle.guard';
 
 export const PrivateResolver = (...roles: UserRoleEnum[]) => {
   return applyDecorators(
-    Resolver(),
     UserRoles(...roles),
     UseGuards(GQLThrottlerGuard, IsPrivateGQLApi, UserRolesGQLGuard),
+    Resolver(),
   );
 };
 
