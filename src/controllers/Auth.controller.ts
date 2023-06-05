@@ -3,8 +3,8 @@ import { LoginOutputDto } from 'src/dto/Auth.dto';
 import { AuthService } from 'src/services/Auth.service';
 import { ThrottlerGuard } from '@nestjs/throttler';
 
-@Controller('auth')
 @UseGuards(ThrottlerGuard)
+@Controller('auth')
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 

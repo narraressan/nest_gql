@@ -3,8 +3,8 @@ import { AuthController } from 'src/controllers/Auth.controller';
 import { AuthService } from 'src/services/Auth.service';
 
 @Module({
-  controllers: [AuthController],
   imports: [],
+  controllers: [AuthController],
   providers: [AuthService],
 })
 export class AuthModule {}
