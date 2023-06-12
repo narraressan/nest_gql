@@ -51,4 +51,3 @@ docker logout
 
 - add `refresh token` mechanism
 - integrate Auth0 logout API
-- add github pipelines
