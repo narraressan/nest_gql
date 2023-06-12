@@ -9,6 +9,10 @@ describe('Health', () => {
     app = await setupTest();
   });
 
+  afterAll(async () => {
+    await app.close();
+  });
+
   it('Test healthCheck() to summarize status of all running dependencies', async () => {
     await request(app.getHttpServer())
       .get(`/health`)

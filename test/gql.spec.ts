@@ -45,6 +45,7 @@ describe('AppController (e2e)', () => {
 
   afterAll(async () => {
     await orm.close();
+    await app.close();
   });
 
   it('test getUserNotes query', async () => {
