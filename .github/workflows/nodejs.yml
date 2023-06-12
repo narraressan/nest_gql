@@ -5,6 +5,15 @@ on: [push, pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_PASSWORD: supersecret
+          POSTGRES_USER: postgres
+          POSTGRES_DB: postgres
+        ports:
+          - 5432:5432
     steps:
       - uses: actions/checkout@v3
       - name: Use Node.js
@@ -13,3 +22,5 @@ jobs:
           node-version: '18.x'
       - run: yarn
       - run: yarn test
+        env:
+          DB_DATABASE: postgres
